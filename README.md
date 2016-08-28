@@ -1,5 +1,7 @@
 ###  Link to fork on Bitbucket
-https://bitbucket.org/symfolive/emails
+
+https://github.com/Gverrier/email
+
 
 ### Install
 
@@ -13,11 +15,9 @@ With  NPM & Bower dependencies
 
 Stacks:
 
-
 + Use JSX on Render
 + NPM & BOWER
 + AJAX
-+ Firebase
 + Animations effets
 + Undescore.js
 + List item
