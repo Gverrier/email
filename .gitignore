@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+/js/bundle.js
+/js/bundle.min.js
+bower_components/
+.DS_Store
+npm-debug.log
+.idea
+*.iml
+test/tmp

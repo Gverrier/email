@@ -1,0 +1,63 @@
+{
+  "name": "emails-exercice",
+  "version": "0.0.3",
+  "description": "Flux architecture to handle emails",
+  "repository": "https://symfolive@bitbucket.org/symfolive/emails.git",
+  "main": "js/app.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.14.0",
+    "browserify": "https://registry.npmjs.org/browserify/-/browserify-11.0.1.tgz",
+    "classnames": "^2.2.5",
+    "eslint": "^3.4.0",
+    "events": "^1.1.1",
+    "flux": "^2.1.1",
+    "gulp": "https://registry.npmjs.org/gulp/-/gulp-3.9.0.tgz",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.6.0.tgz",
+    "gulp-connect": "^5.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.12.2",
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-router": "^2.7.0",
+    "reactify": "https://registry.npmjs.org/reactify/-/reactify-1.1.1.tgz",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "envify": "^3.0.0",
+    "jest-cli": "^0.4.3",
+    "reactify": "^0.15.2",
+    "uglify-js": "~2.4.15",
+    "watchify": "^2.1.1"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "test": "jest"
+  },
+  "author": "Bill Fisher",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "rootDir": "./js"
+  }
+}

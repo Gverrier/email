@@ -1,0 +1,24 @@
+{
+  "name": "emails-exercice",
+  "description": "Flux architecture to handle emails",
+  "main": "js/app.js",
+  "authors": [
+    "Verrier Guillaume"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome-cdn": "^4.5.2",
+    "jquery": "^3.1.0",
+    "modernizr": "^3.3.1",
+    "underscore": "^1.8.3"
+  }
+}
