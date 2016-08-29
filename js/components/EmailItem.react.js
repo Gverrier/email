@@ -50,8 +50,6 @@ var EmailItem = React.createClass({
           <button type="button" data-toggle="modal" data-target={"#edit"+ email.id} className="btn btnUser"><p><i className="fa fa-pencil"></i><span>Modifier</span></p></button>
           <button onClick={this._onDestroyClick} className="btn btnUser deleteUser"><p><i className="fa fa-trash-o"></i><span>Supprimer</span></p></button>
           <button onClick={this._onConfirmedClick} className="btn btnUser">{buttonStatus}</button>
-
-
         </div>
       </li>
 

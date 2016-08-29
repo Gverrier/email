@@ -27,8 +27,8 @@ var MainSection = React.createClass({
     modals = [];
 
     for (var key in allEmails) {
-      emails.push(<EmailItem key={key} email={allEmails[key]} />);
-      modals.push(<ModalItem email={allEmails[key]} />);
+      emails.push(<EmailItem key={allEmails[key].id} email={allEmails[key]} />);
+      modals.push(<ModalItem key={allEmails[key].id} email={allEmails[key]} />);
     }
 
 

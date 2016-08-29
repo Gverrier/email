@@ -274,8 +274,6 @@ var EmailItem = React.createClass({displayName: "EmailItem",
           React.createElement("button", {type: "button", "data-toggle": "modal", "data-target": "#edit"+ email.id, className: "btn btnUser"}, React.createElement("p", null, React.createElement("i", {className: "fa fa-pencil"}), React.createElement("span", null, "Modifier"))), 
           React.createElement("button", {onClick: this._onDestroyClick, className: "btn btnUser deleteUser"}, React.createElement("p", null, React.createElement("i", {className: "fa fa-trash-o"}), React.createElement("span", null, "Supprimer"))), 
           React.createElement("button", {onClick: this._onConfirmedClick, className: "btn btnUser"}, buttonStatus)
-
-
         )
       )
 
@@ -382,8 +380,8 @@ var MainSection = React.createClass({displayName: "MainSection",
     modals = [];
 
     for (var key in allEmails) {
-      emails.push(React.createElement(EmailItem, {key: key, email: allEmails[key]}));
-      modals.push(React.createElement(ModalItem, {email: allEmails[key]}));
+      emails.push(React.createElement(EmailItem, {key: allEmails[key].id, email: allEmails[key]}));
+      modals.push(React.createElement(ModalItem, {key: allEmails[key].id, email: allEmails[key]}));
     }
 
 
@@ -458,7 +456,7 @@ var ModalItem = React.createClass({displayName: "ModalItem",
 
     return(
         React.createElement("form", {onSubmit: this._onSubmit}, 
-              React.createElement("div", {className: "modal fade", id: "edit"+ this.state.email.id, tabindex: "-1", role: "dialog"}, 
+              React.createElement("div", {className: "modal fade", id: "edit"+ this.state.email.id, tabIndex: "-1", role: "dialog"}, 
                     React.createElement("div", {className: "modal-dialog modal-lg", role: "document"}, 
                           React.createElement("div", {className: "modal-content"}, 
                               React.createElement("div", {className: "modal-header"}, 
@@ -495,16 +493,6 @@ var ModalItem = React.createClass({displayName: "ModalItem",
                                                   ), 
                                                   React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-8"}, 
                                                       React.createElement("input", {defaultValue: this.state.email.email, ref: "email", type: "email", className: "form-control", required: true, placeholder: "Email"})
-                                                  )
-                                                )
-                                            ), 
-                                            React.createElement("div", {className: "form-group"}, 
-                                                React.createElement("div", {className: "row"}, 
-                                                  React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-3"}, 
-                                                      React.createElement("label", null, "Avatar :")
-                                                  ), 
-                                                  React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-8"}, 
-                                                      React.createElement("input", {defaultValue: this.state.email.avatar, ref: "avatar", type: "url", className: "form-control", required: true, placeholder: "http://monimage.jpg"})
                                                   )
                                                 )
                                             )
