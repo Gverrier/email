@@ -2,7 +2,7 @@
   "name": "emails-exercice",
   "version": "0.0.3",
   "description": "Flux architecture to handle emails",
-  "repository": "https://symfolive@bitbucket.org/symfolive/emails.git",
+  "repository": "https://github.com/Gverrier/email",
   "main": "js/app.js",
   "dependencies": {
     "bootstrap": "^3.3.7",
