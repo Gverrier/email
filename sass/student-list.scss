@@ -174,14 +174,16 @@
 		 	font-size: 11px;
 		 	color:$status-user;
 		 	position: relative;
-		 	margin-left: 20px;
 
 			 	.fa-briefcase:before {
 				    content: "\f0b1";
 				    font-size: 15px;
 				    position: absolute;
 				    top: 1px;
-				    left: -20px;
+				}
+
+				span {
+					margin-left: 20px;
 				}
 		}
 }

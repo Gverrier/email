@@ -19,11 +19,11 @@ var EmailItem = React.createClass({
     var profil;
 
     if(email.confirmed){
-      status = <p className="status"><i className="fa fa-briefcase"></i> <span>Elève</span></p>;
+      status = <p className="status"><i className="fa fa-briefcase"></i><span>Elève</span></p>;
       profil =  `${email.nom} ${email.prenom}`;
       buttonStatus = <p ><i className="fa fa-check"></i><span>Activer</span></p>;
     }else{
-      status = <p className="status"><span>En attente de confirmation</span></p>;
+      status = <p className="status">En attente de confirmation</p>;
       profil =  email.email;
       buttonStatus = <p><i className="fa fa-paper-plane-o"></i><span>Réinviter</span></p>;
     }
