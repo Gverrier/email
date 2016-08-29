@@ -5,9 +5,17 @@ https://github.com/Gverrier/email
 
 ### Install
 
-With  NPM & Bower dependencies
+With NPM & Bower dependencies
 
     npm install && bower install
+
+### Launch
+
+Once create, launch command: 
+
+	gulp
+	
+And watch project
 
 ### Flux MailsApp
 
@@ -61,7 +69,7 @@ Ils fournissent au dispatcher **les callbaks exécutés** lors de la notificatio
 Il va donc contenir **l’implémentation de toutes les règles de gestions** du domaine qu’il couvre. Il va également gerer les actions qu’il veut traiter, car comme expliqué ci-dessus, le dispatcher notifie les stores de toutes les actions de l’application.
 Chaque store s’occupera d’une partie du fonctionnel de l’application et ne voudra donc pas traiter toutes les actions. Pour finir, les stores vont notifier par événement les changements d’état aux vues leur correspondant.
 
-# Les vues
+#### Les vues
 
 En bleu sur le schéma.
 Les vues sont chargées d’afficher le state contenu dans le store associé.
