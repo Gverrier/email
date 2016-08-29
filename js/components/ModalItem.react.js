@@ -13,15 +13,18 @@ var ModalItem = React.createClass({
   getInitialState: function() {
     var email = this.props.email;
 
+
     if(!email){
-      email = {
-        id: "new",
-        nom: null,
-        prenom: null,
-        email: null,
-        avatar: null,
+        email = {
+          id: 'new',
+          nom: null,
+          prenom: null,
+          email: null,
+          avatar: null,
+        };
+
       }
-    }
+
    return {email: email};
   },
 
@@ -40,7 +43,7 @@ var ModalItem = React.createClass({
                           <div className="modal-content">
                               <div className="modal-header">
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 className="modal-title" id="myModalLabel">Ajouter {this.state.nom} {this.state.prenom}</h4>
+                                <h4 className="modal-title" id="myModalLabel"> {this.state.email.nom} {this.state.email.prenom}</h4>
                               </div>
                               <div className="modal-body">
                                     <div className="row">

@@ -464,15 +464,18 @@ var ModalItem = React.createClass({displayName: "ModalItem",
   getInitialState: function() {
     var email = this.props.email;
 
+
     if(!email){
-      email = {
-        id: "new",
-        nom: null,
-        prenom: null,
-        email: null,
-        avatar: null,
+        email = {
+          id: 'new',
+          nom: null,
+          prenom: null,
+          email: null,
+          avatar: null,
+        };
+
       }
-    }
+
    return {email: email};
   },
 
@@ -491,7 +494,7 @@ var ModalItem = React.createClass({displayName: "ModalItem",
                           React.createElement("div", {className: "modal-content"}, 
                               React.createElement("div", {className: "modal-header"}, 
                                 React.createElement("button", {type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close"}, React.createElement("span", {"aria-hidden": "true"}, "×")), 
-                                React.createElement("h4", {className: "modal-title", id: "myModalLabel"}, "Ajouter ", this.state.nom, " ", this.state.prenom)
+                                React.createElement("h4", {className: "modal-title", id: "myModalLabel"}, " ", this.state.email.nom, " ", this.state.email.prenom)
                               ), 
                               React.createElement("div", {className: "modal-body"}, 
                                     React.createElement("div", {className: "row"}, 
@@ -596,18 +599,6 @@ module.exports = ModalItem;
 },{"../actions/EmailActions":1,"react":172}],8:[function(require,module,exports){
 var keyMirror = require('keymirror');
 
-/**
- * All actions constants
- * @param  {[type]} {                                  EMAIL_SELECTED: null [description]
- * @param  {[type]} EMAIL_CREATE:        null          [description]
- * @param  {[type]} EMAIL_CONFIRM:       null          [description]
- * @param  {[type]} EMAIL_CONFIRM_BATCH: null          [description]
- * @param  {[type]} EMAIL_UNDO_CONFIRM:  null          [description]
- * @param  {[type]} EMAIL_DESTROY:       null          [description]
- * @param  {[type]} EMAIL_DESTROY_BATCH: null          [description]
- * @param  {[type]} EMAIL_UPDATE:        null}         [description]
- * @return {[type]}                      [description]
- */
 module.exports = keyMirror({
   EMAIL_ORDER: null,
   EMAIL_SELECTED: null,
@@ -717,10 +708,12 @@ function confirm(id, bool) {
   a.confirmed = bool;
 }
 
-
+/**
+ * Order emails
+ */
 function  order(sens) {
   if(!sens){
-    _emails = _.sortBy(_emails,"nom");
+    _emails = _.sortBy(_emails,'nom');
   }else{
    _emails.reverse();
   }

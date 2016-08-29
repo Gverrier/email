@@ -74,10 +74,12 @@ function confirm(id, bool) {
   a.confirmed = bool;
 }
 
-
+/**
+ * Order emails
+ */
 function  order(sens) {
   if(!sens){
-    _emails = _.sortBy(_emails,"nom");
+    _emails = _.sortBy(_emails,'nom');
   }else{
    _emails.reverse();
   }
