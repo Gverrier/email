@@ -90,10 +90,15 @@
 
 	p {
 		margin: 0;
+		
+		.fa {
+			margin-left:8px;
+		}
 
 		.fa-caret-down:before{
 		    cursor: pointer;
 		 }
+
 	}
 
 	#nameTitle{
