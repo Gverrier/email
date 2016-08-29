@@ -14,13 +14,12 @@ var EmailItem = React.createClass({
    */
   render: function() {
     var email = this.props.email;
-
     var status;
     var profil;
 
     if(email.confirmed){
       status = <p className="status"><i className="fa fa-briefcase"></i><span>Elève</span></p>;
-      profil =  `${email.nom} ${email.prenom}`;
+      profil = <p><span className="lastname">{email.nom}</span> <span className="firstname">{email.prenom}</span></p>
       buttonStatus = <p ><i className="fa fa-check"></i><span>Activer</span></p>;
     }else{
       status = <p className="status">En attente de confirmation</p>;
@@ -42,7 +41,11 @@ var EmailItem = React.createClass({
         </div>
         <img className="avatar" src={email.avatar} width="36px" height="36px"/>
         <div className="profil">
-            <p className="name"><span className="firstName">{profil}</span></p>
+            <p className="name">
+            <span className="firstName">
+              {profil}
+            </span>
+            </p>
               {status}
         </div>
 

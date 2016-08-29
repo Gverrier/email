@@ -238,13 +238,12 @@ var EmailItem = React.createClass({displayName: "EmailItem",
    */
   render: function() {
     var email = this.props.email;
-
     var status;
     var profil;
 
     if(email.confirmed){
       status = React.createElement("p", {className: "status"}, React.createElement("i", {className: "fa fa-briefcase"}), React.createElement("span", null, "Elève"));
-      profil =  `${email.nom} ${email.prenom}`;
+      profil = React.createElement("p", null, React.createElement("span", {className: "lastname"}, email.nom), " ", React.createElement("span", {className: "firstname"}, email.prenom))
       buttonStatus = React.createElement("p", null, React.createElement("i", {className: "fa fa-check"}), React.createElement("span", null, "Activer"));
     }else{
       status = React.createElement("p", {className: "status"}, "En attente de confirmation");
@@ -266,7 +265,11 @@ var EmailItem = React.createClass({displayName: "EmailItem",
         ), 
         React.createElement("img", {className: "avatar", src: email.avatar, width: "36px", height: "36px"}), 
         React.createElement("div", {className: "profil"}, 
-            React.createElement("p", {className: "name"}, React.createElement("span", {className: "firstName"}, profil)), 
+            React.createElement("p", {className: "name"}, 
+            React.createElement("span", {className: "firstName"}, 
+              profil
+            )
+            ), 
               status
         ), 
 
