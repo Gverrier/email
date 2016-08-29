@@ -25,10 +25,10 @@
 
 			&:hover {
 				color:white;
-				background-color:#00c49e;
+				background-color:$main-color;
 			}
 
-			&:active:focus, .actionBtn:active {
+			&:active:focus, .actionBtn:active, .actionBtn:focus {
 				outline:none;
 			}
 
@@ -50,6 +50,18 @@
 			    	left: 10px;
 				}
 
+	}
+
+	.notallowedBtn {
+				cursor:not-allowed;
+				border:1px solid $not-allowed;
+				color:$not-allowed;
+
+			&:hover {
+				color:$not-allowed;
+				background-color:$white;
+				border:1px solid $not-allowed;
+			}
 	}
 
 	.cancelBtn {

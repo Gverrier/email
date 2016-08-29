@@ -35,7 +35,7 @@ var ModalItem = React.createClass({
 
     return(
         <form  onSubmit={this._onSubmit}>
-              <div className="modal fade" id={"edit"+ this.state.email.id}  tabindex="-1" role="dialog" >
+              <div className="modal fade" id={"edit"+ this.state.email.id}  tabIndex="-1" role="dialog" >
                     <div className="modal-dialog modal-lg" role="document">
                           <div className="modal-content">
                               <div className="modal-header">
@@ -72,16 +72,6 @@ var ModalItem = React.createClass({
                                                   </div>
                                                   <div className="col-xs-12 col-sm-12 col-md-8">
                                                       <input defaultValue={this.state.email.email}  ref='email' type="email" className="form-control" required placeholder="Email"/>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="row">
-                                                  <div className="col-xs-12 col-sm-12 col-md-3">
-                                                      <label>Avatar :</label>
-                                                  </div>
-                                                  <div className="col-xs-12 col-sm-12 col-md-8">
-                                                      <input defaultValue={this.state.email.avatar}  ref='avatar' type="url" className="form-control" required placeholder="http://monimage.jpg"/>
                                                   </div>
                                                 </div>
                                             </div>

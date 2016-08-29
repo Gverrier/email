@@ -5,9 +5,17 @@ https://github.com/Gverrier/email
 
 ### Install
 
-With  NPM & Bower dependencies
+With NPM & Bower dependencies
 
     npm install && bower install
+
+### Launch
+
+Once create, launch command:
+
+	gulp
+
+And watch project
 
 ### Flux MailsApp
 
@@ -15,23 +23,29 @@ With  NPM & Bower dependencies
 
 Stacks:
 
+<img src="http://blog.soat.fr/wp-content/uploads/2016/04/flux-react2.png" width="300" style="display:inline-block" alt="logo React"/>
+<img src="https://www.topdraw.com/assets/uploads/2014/02/bower-gulp-sass.png" width="300" style="display:inline-block" alt="logo React"/>
+
+
++ [React.js](https://facebook.github.io/react/)
 + Use JSX on Render
-+ NPM & BOWER
++ [NPM](https://www.npmjs.com/) & [BOWER](https://bower.io/)
++ [Gulp](http://gulpjs.com/)
 + AJAX
 + Animations effets
-+ Undescore.js
++ [Undescore.js](http://underscorejs.org/)
 + List item
-+ Flux
++ [Flux](https://facebook.github.io/flux/docs/todo-list.html)
 
 
-![enter image description here](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
+![FluxSchema](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
 
 
 Pourquoi Flux avec ReactJS ?
 ----------------------------
+<img src="https://frontendmasters.com/assets/flux-workshop.png" width="200" style="display:inline-block" alt="logo Flux"/>
 
-[http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/](http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/)
-
+Explication : [http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/](http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/)
 ##Mecanisme
 
 #### Les Actions
@@ -61,7 +75,7 @@ Ils fournissent au dispatcher **les callbaks exécutés** lors de la notificatio
 Il va donc contenir **l’implémentation de toutes les règles de gestions** du domaine qu’il couvre. Il va également gerer les actions qu’il veut traiter, car comme expliqué ci-dessus, le dispatcher notifie les stores de toutes les actions de l’application.
 Chaque store s’occupera d’une partie du fonctionnel de l’application et ne voudra donc pas traiter toutes les actions. Pour finir, les stores vont notifier par événement les changements d’état aux vues leur correspondant.
 
-# Les vues
+#### Les vues
 
 En bleu sur le schéma.
 Les vues sont chargées d’afficher le state contenu dans le store associé.

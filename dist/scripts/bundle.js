@@ -238,17 +238,16 @@ var EmailItem = React.createClass({displayName: "EmailItem",
    */
   render: function() {
     var email = this.props.email;
-
     var status;
     var profil;
 
     if(email.confirmed){
-      status = React.createElement("p", {className: "status"}, React.createElement("i", {className: "fa fa-briefcase"}), " ", React.createElement("span", null, "Elève"));
-      profil =  `${email.nom} ${email.prenom}`;
+      status = React.createElement("p", {className: "status"}, React.createElement("i", {className: "fa fa-briefcase"}), React.createElement("span", null, "Elève"));
+      profil = React.createElement("p", {className: "name"}, React.createElement("span", {className: "lastName"}, email.nom), " ", React.createElement("span", {className: "firstName"}, email.prenom));
       buttonStatus = React.createElement("p", null, React.createElement("i", {className: "fa fa-check"}), React.createElement("span", null, "Activer"));
     }else{
-      status = React.createElement("p", {className: "status"}, React.createElement("span", null, "En attente de confirmation"));
-      profil =  email.email;
+      status = React.createElement("p", {className: "status"}, "En attente de confirmation");
+      profil =  React.createElement("p", {className: "name"}, email.email);
       buttonStatus = React.createElement("p", null, React.createElement("i", {className: "fa fa-paper-plane-o"}), React.createElement("span", null, "Réinviter"));
     }
 
@@ -266,16 +265,15 @@ var EmailItem = React.createClass({displayName: "EmailItem",
         ), 
         React.createElement("img", {className: "avatar", src: email.avatar, width: "36px", height: "36px"}), 
         React.createElement("div", {className: "profil"}, 
-            React.createElement("p", {className: "name"}, React.createElement("span", {className: "firstName"}, profil)), 
-              status
+
+            profil, 
+            status
         ), 
 
         React.createElement("div", {className: "btn-group"}, 
           React.createElement("button", {type: "button", "data-toggle": "modal", "data-target": "#edit"+ email.id, className: "btn btnUser"}, React.createElement("p", null, React.createElement("i", {className: "fa fa-pencil"}), React.createElement("span", null, "Modifier"))), 
           React.createElement("button", {onClick: this._onDestroyClick, className: "btn btnUser deleteUser"}, React.createElement("p", null, React.createElement("i", {className: "fa fa-trash-o"}), React.createElement("span", null, "Supprimer"))), 
           React.createElement("button", {onClick: this._onConfirmedClick, className: "btn btnUser"}, buttonStatus)
-
-
         )
       )
 
@@ -328,7 +326,7 @@ var Header = React.createClass({displayName: "Header",
 				React.createElement("div", {className: "actions"}, 
 					React.createElement("button", {onClick: this._onDestroyBatch, className: "actionBtn"}, React.createElement("i", {className: "fa fa-trash-o"}), "Supprimer"), 
 					React.createElement("button", {onClick: this._onActiveBatch, className: "actionBtn"}, React.createElement("i", {className: "fa fa-paper-plane-o"}), "Renvoyer l'invitation"), 
-					React.createElement("button", {className: "actionBtn"}, React.createElement("i", {className: "fa fa-plus"}), "Inviter des collègues"), 
+					React.createElement("button", {className: "actionBtn notallowedBtn"}, React.createElement("i", {className: "fa fa-plus"}), "Inviter des collègues"), 
 					React.createElement("button", {className: "actionBtn", type: "button", "data-toggle": "modal", "data-target": "#editnew"}, React.createElement("i", {className: "fa fa-plus"}), "Ajouter des élèves")
 				)
 			)
@@ -382,8 +380,8 @@ var MainSection = React.createClass({displayName: "MainSection",
     modals = [];
 
     for (var key in allEmails) {
-      emails.push(React.createElement(EmailItem, {key: key, email: allEmails[key]}));
-      modals.push(React.createElement(ModalItem, {email: allEmails[key]}));
+      emails.push(React.createElement(EmailItem, {key: allEmails[key].id, email: allEmails[key]}));
+      modals.push(React.createElement(ModalItem, {key: allEmails[key].id, email: allEmails[key]}));
     }
 
 
@@ -394,7 +392,7 @@ var MainSection = React.createClass({displayName: "MainSection",
           React.createElement("ul", null, 
             React.createElement("li", null, 
               React.createElement("input", {type: "checkbox", id: "selectAll", name: "selector"}), 
-              React.createElement("label", {for: "selectAll"}), 
+              React.createElement("label", {htmlFor: "selectAll"}), 
               React.createElement("div", {className: "check"})
             )
           ), 
@@ -458,7 +456,7 @@ var ModalItem = React.createClass({displayName: "ModalItem",
 
     return(
         React.createElement("form", {onSubmit: this._onSubmit}, 
-              React.createElement("div", {className: "modal fade", id: "edit"+ this.state.email.id, tabindex: "-1", role: "dialog"}, 
+              React.createElement("div", {className: "modal fade", id: "edit"+ this.state.email.id, tabIndex: "-1", role: "dialog"}, 
                     React.createElement("div", {className: "modal-dialog modal-lg", role: "document"}, 
                           React.createElement("div", {className: "modal-content"}, 
                               React.createElement("div", {className: "modal-header"}, 
@@ -495,16 +493,6 @@ var ModalItem = React.createClass({displayName: "ModalItem",
                                                   ), 
                                                   React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-8"}, 
                                                       React.createElement("input", {defaultValue: this.state.email.email, ref: "email", type: "email", className: "form-control", required: true, placeholder: "Email"})
-                                                  )
-                                                )
-                                            ), 
-                                            React.createElement("div", {className: "form-group"}, 
-                                                React.createElement("div", {className: "row"}, 
-                                                  React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-3"}, 
-                                                      React.createElement("label", null, "Avatar :")
-                                                  ), 
-                                                  React.createElement("div", {className: "col-xs-12 col-sm-12 col-md-8"}, 
-                                                      React.createElement("input", {defaultValue: this.state.email.avatar, ref: "avatar", type: "url", className: "form-control", required: true, placeholder: "http://monimage.jpg"})
                                                   )
                                                 )
                                             )

@@ -14,17 +14,16 @@ var EmailItem = React.createClass({
    */
   render: function() {
     var email = this.props.email;
-
     var status;
     var profil;
 
     if(email.confirmed){
-      status = <p className="status"><i className="fa fa-briefcase"></i> <span>Elève</span></p>;
-      profil =  `${email.nom} ${email.prenom}`;
+      status = <p className="status"><i className="fa fa-briefcase"></i><span>Elève</span></p>;
+      profil = <p className="name"><span className="lastName">{email.nom}</span> <span className="firstName">{email.prenom}</span></p>;
       buttonStatus = <p ><i className="fa fa-check"></i><span>Activer</span></p>;
     }else{
-      status = <p className="status"><span>En attente de confirmation</span></p>;
-      profil =  email.email;
+      status = <p className="status">En attente de confirmation</p>;
+      profil =  <p className="name">{email.email}</p>;
       buttonStatus = <p><i className="fa fa-paper-plane-o"></i><span>Réinviter</span></p>;
     }
 
@@ -42,16 +41,15 @@ var EmailItem = React.createClass({
         </div>
         <img className="avatar" src={email.avatar} width="36px" height="36px"/>
         <div className="profil">
-            <p className="name"><span className="firstName">{profil}</span></p>
-              {status}
+
+            {profil}
+            {status}
         </div>
 
         <div className="btn-group">
           <button type="button" data-toggle="modal" data-target={"#edit"+ email.id} className="btn btnUser"><p><i className="fa fa-pencil"></i><span>Modifier</span></p></button>
           <button onClick={this._onDestroyClick} className="btn btnUser deleteUser"><p><i className="fa fa-trash-o"></i><span>Supprimer</span></p></button>
           <button onClick={this._onConfirmedClick} className="btn btnUser">{buttonStatus}</button>
-
-
         </div>
       </li>
 
