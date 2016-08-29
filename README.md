@@ -11,10 +11,10 @@ With NPM & Bower dependencies
 
 ### Launch
 
-Once create, launch command: 
+Once create, launch command:
 
 	gulp
-	
+
 And watch project
 
 ### Flux MailsApp
@@ -23,7 +23,9 @@ And watch project
 
 Stacks:
 
-<img src="https://blog.dashlane.com/wp-content/uploads/2016/02/react-logo-2.png" width="300" style="display:inline-block" alt="logo React"/>
+<img src="http://blog.soat.fr/wp-content/uploads/2016/04/flux-react2.pngpng" width="300" style="display:inline-block" alt="logo React"/>
+<img src="https://www.topdraw.com/assets/uploads/2014/02/bower-gulp-sass.png" width="300" style="display:inline-block" alt="logo React"/>
+
 
 + [React.js](https://facebook.github.io/react/)
 + Use JSX on Render
