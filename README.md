@@ -1,7 +1,4 @@
-###  Link to fork on Bitbucket
-
-https://github.com/Gverrier/email
-
+# Application built in ReactJS & Flux
 
 ### Install
 
