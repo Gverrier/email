@@ -15,6 +15,17 @@ var EmailActions = {
   /**
    * Select email item
    */
+  order: function(sens) {
+    AppDispatcher.dispatch({
+      actionType: EmailConstants.EMAIL_ORDER,
+      sens : sens
+    });
+  },
+
+
+  /**
+   * Select email item
+   */
   selected: function(id) {
     if(selected.indexOf(id) === -1){
       selected.push(id);

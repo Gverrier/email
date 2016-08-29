@@ -75,6 +75,14 @@ function confirm(id, bool) {
 }
 
 
+function  order(sens) {
+  if(!sens){
+    _emails = _.sortBy(_emails,"nom");
+  }else{
+   _emails.reverse();
+  }
+}
+
 /**
  * Events
  * Emails store Event Emitter
@@ -87,6 +95,8 @@ var EmailStore = assign({}, EventEmitter.prototype, {
     loadDatas: function(datas) {
       _emails = datas;
     },
+
+
 
     /**
      * Get emails
@@ -128,6 +138,11 @@ var EmailStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
+
+    case EmailConstants.EMAIL_ORDER:
+        order(action.sens);
+        EmailStore.emitChange();
+        break;
 
     case EmailConstants.EMAIL_CREATE:
       if (action.email.email.trim() !== '') {

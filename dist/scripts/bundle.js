@@ -16,6 +16,17 @@ var EmailActions = {
   /**
    * Select email item
    */
+  order: function(sens) {
+    AppDispatcher.dispatch({
+      actionType: EmailConstants.EMAIL_ORDER,
+      sens : sens
+    });
+  },
+
+
+  /**
+   * Select email item
+   */
   selected: function(id) {
     if(selected.indexOf(id) === -1){
       selected.push(id);
@@ -364,6 +375,11 @@ var ModalItem = require('./ModalItem.react');
  */
 var MainSection = React.createClass({displayName: "MainSection",
 
+
+  getInitialState: function() {
+    return {flag: false};
+  },
+
   /**
    * Render view
    * @return {object}
@@ -384,6 +400,13 @@ var MainSection = React.createClass({displayName: "MainSection",
       modals.push(React.createElement(ModalItem, {key: allEmails[key].id, email: allEmails[key]}));
     }
 
+    var caret;
+    caret = React.createElement("i", {className: "fa fa-caret-down"});
+    if(this.state.flag){
+      caret = React.createElement("i", {className: "fa fa-caret-down"});
+    }else{
+      caret = React.createElement("i", {className: "fa fa-caret-up"});
+    }
 
     return (
       React.createElement("div", null, 
@@ -396,7 +419,9 @@ var MainSection = React.createClass({displayName: "MainSection",
               React.createElement("div", {className: "check"})
             )
           ), 
-          React.createElement("p", {id: "nameTitle"}, "Nom ", React.createElement("i", {className: "fa fa-caret-down"})), 
+          React.createElement("p", {id: "nameTitle"}, React.createElement("a", {onClick: this._orderBy}, "Nom",  
+              caret
+          )), 
           React.createElement("p", null, "Action")
         ), 
         React.createElement("nav", {id: "students", className: "listUsers"}, 
@@ -411,6 +436,11 @@ var MainSection = React.createClass({displayName: "MainSection",
 
     )
     );
+  },
+
+  _orderBy: function() {
+    EmailActions.order(this.state.flag);
+    this.state.flag = !this.state.flag;
   },
 
 });
@@ -579,6 +609,7 @@ var keyMirror = require('keymirror');
  * @return {[type]}                      [description]
  */
 module.exports = keyMirror({
+  EMAIL_ORDER: null,
   EMAIL_SELECTED: null,
   EMAIL_CREATE: null,
   EMAIL_CONFIRM: null,
@@ -687,6 +718,14 @@ function confirm(id, bool) {
 }
 
 
+function  order(sens) {
+  if(!sens){
+    _emails = _.sortBy(_emails,"nom");
+  }else{
+   _emails.reverse();
+  }
+}
+
 /**
  * Events
  * Emails store Event Emitter
@@ -699,6 +738,8 @@ var EmailStore = assign({}, EventEmitter.prototype, {
     loadDatas: function(datas) {
       _emails = datas;
     },
+
+
 
     /**
      * Get emails
@@ -740,6 +781,11 @@ var EmailStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
+
+    case EmailConstants.EMAIL_ORDER:
+        order(action.sens);
+        EmailStore.emitChange();
+        break;
 
     case EmailConstants.EMAIL_CREATE:
       if (action.email.email.trim() !== '') {

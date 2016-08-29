@@ -13,6 +13,7 @@ var keyMirror = require('keymirror');
  * @return {[type]}                      [description]
  */
 module.exports = keyMirror({
+  EMAIL_ORDER: null,
   EMAIL_SELECTED: null,
   EMAIL_CREATE: null,
   EMAIL_CONFIRM: null,

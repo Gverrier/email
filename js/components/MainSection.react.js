@@ -11,6 +11,11 @@ var ModalItem = require('./ModalItem.react');
  */
 var MainSection = React.createClass({
 
+
+  getInitialState: function() {
+    return {flag: false};
+  },
+
   /**
    * Render view
    * @return {object}
@@ -31,6 +36,13 @@ var MainSection = React.createClass({
       modals.push(<ModalItem key={allEmails[key].id} email={allEmails[key]} />);
     }
 
+    var caret;
+    caret = <i className="fa fa-caret-down"></i>;
+    if(this.state.flag){
+      caret = <i className="fa fa-caret-down"></i>;
+    }else{
+      caret = <i className="fa fa-caret-up"></i>;
+    }
 
     return (
       <div>
@@ -43,7 +55,9 @@ var MainSection = React.createClass({
               <div className="check"></div>
             </li>
           </ul>
-          <p id="nameTitle">Nom <i className="fa fa-caret-down"></i></p>
+          <p id="nameTitle"><a onClick={this._orderBy}>Nom 
+              {caret}
+          </a></p>
           <p>Action</p>
         </div>
         <nav id="students" className="listUsers">
@@ -58,6 +72,11 @@ var MainSection = React.createClass({
 
     </div>
     );
+  },
+
+  _orderBy: function() {
+    EmailActions.order(this.state.flag);
+    this.state.flag = !this.state.flag;
   },
 
 });
