@@ -24,12 +24,12 @@ And watch project
 Stacks:
 
 + Use JSX on Render
-+ NPM & BOWER
++ [NPM](https://www.npmjs.com/) & [BOWER](https://bower.io/)
 + AJAX
 + Animations effets
 + Undescore.js
 + List item
-+ Flux
++ [Flux](https://facebook.github.io/flux/docs/todo-list.html)
 
 
 ![enter image description here](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
