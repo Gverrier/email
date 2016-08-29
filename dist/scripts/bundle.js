@@ -677,7 +677,7 @@ function destroy(id) {
  */
 function removeBatch(selected) {
   _emails = _.reject(_emails, function(elt){
-    return selected.indexOf(elt.id) != -1;
+    return selected.indexOf(elt.id) !== -1;
   });
 }
 
