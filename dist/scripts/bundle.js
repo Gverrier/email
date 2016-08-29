@@ -243,11 +243,11 @@ var EmailItem = React.createClass({displayName: "EmailItem",
 
     if(email.confirmed){
       status = React.createElement("p", {className: "status"}, React.createElement("i", {className: "fa fa-briefcase"}), React.createElement("span", null, "Elève"));
-      profil = React.createElement("p", null, React.createElement("span", {className: "lastname"}, email.nom), " ", React.createElement("span", {className: "firstname"}, email.prenom))
+      profil = React.createElement("p", {className: "name"}, React.createElement("span", {className: "lastName"}, email.nom), " ", React.createElement("span", {className: "firstName"}, email.prenom));
       buttonStatus = React.createElement("p", null, React.createElement("i", {className: "fa fa-check"}), React.createElement("span", null, "Activer"));
     }else{
       status = React.createElement("p", {className: "status"}, "En attente de confirmation");
-      profil =  email.email;
+      profil =  React.createElement("p", {className: "name"}, email.email);
       buttonStatus = React.createElement("p", null, React.createElement("i", {className: "fa fa-paper-plane-o"}), React.createElement("span", null, "Réinviter"));
     }
 
@@ -265,12 +265,9 @@ var EmailItem = React.createClass({displayName: "EmailItem",
         ), 
         React.createElement("img", {className: "avatar", src: email.avatar, width: "36px", height: "36px"}), 
         React.createElement("div", {className: "profil"}, 
-            React.createElement("p", {className: "name"}, 
-            React.createElement("span", {className: "firstName"}, 
-              profil
-            )
-            ), 
-              status
+
+            profil, 
+            status
         ), 
 
         React.createElement("div", {className: "btn-group"}, 
@@ -329,7 +326,7 @@ var Header = React.createClass({displayName: "Header",
 				React.createElement("div", {className: "actions"}, 
 					React.createElement("button", {onClick: this._onDestroyBatch, className: "actionBtn"}, React.createElement("i", {className: "fa fa-trash-o"}), "Supprimer"), 
 					React.createElement("button", {onClick: this._onActiveBatch, className: "actionBtn"}, React.createElement("i", {className: "fa fa-paper-plane-o"}), "Renvoyer l'invitation"), 
-					React.createElement("button", {className: "actionBtn"}, React.createElement("i", {className: "fa fa-plus"}), "Inviter des collègues"), 
+					React.createElement("button", {className: "actionBtn notallowedBtn"}, React.createElement("i", {className: "fa fa-plus"}), "Inviter des collègues"), 
 					React.createElement("button", {className: "actionBtn", type: "button", "data-toggle": "modal", "data-target": "#editnew"}, React.createElement("i", {className: "fa fa-plus"}), "Ajouter des élèves")
 				)
 			)
