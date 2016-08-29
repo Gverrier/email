@@ -23,7 +23,7 @@ And watch project
 
 Stacks:
 
-<img src="http://blog.soat.fr/wp-content/uploads/2016/04/flux-react2.pngpng" width="300" style="display:inline-block" alt="logo React"/>
+<img src="http://blog.soat.fr/wp-content/uploads/2016/04/flux-react2.png" width="300" style="display:inline-block" alt="logo React"/>
 <img src="https://www.topdraw.com/assets/uploads/2014/02/bower-gulp-sass.png" width="300" style="display:inline-block" alt="logo React"/>
 
 
