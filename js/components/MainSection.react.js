@@ -39,7 +39,7 @@ var MainSection = React.createClass({
           <ul>
             <li>
               <input type="checkbox" id="selectAll" name="selector" />
-              <label for="selectAll"></label>
+              <label htmlFor="selectAll"></label>
               <div className="check"></div>
             </li>
           </ul>
