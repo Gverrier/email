@@ -23,23 +23,27 @@ And watch project
 
 Stacks:
 
+<img src="https://blog.dashlane.com/wp-content/uploads/2016/02/react-logo-2.png" width="300" style="display:inline-block" alt="logo React"/>
+
++ [React.js](https://facebook.github.io/react/)
 + Use JSX on Render
-+ NPM & BOWER
++ [NPM](https://www.npmjs.com/) & [BOWER](https://bower.io/)
++ [Gulp](http://gulpjs.com/)
 + AJAX
 + Animations effets
-+ Undescore.js
++ [Undescore.js](http://underscorejs.org/)
 + List item
-+ Flux
++ [Flux](https://facebook.github.io/flux/docs/todo-list.html)
 
 
-![enter image description here](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
+![FluxSchema](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
 
 
 Pourquoi Flux avec ReactJS ?
 ----------------------------
+<img src="https://frontendmasters.com/assets/flux-workshop.png" width="200" style="display:inline-block" alt="logo Flux"/>
 
-[http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/](http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/)
-
+Explication : [http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/](http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/)
 ##Mecanisme
 
 #### Les Actions
