@@ -31,7 +31,7 @@
     "gulp-uglify": "^2.0.0",
     "keymirror": "~0.1.0",
     "object-assign": "^1.0.0",
-    "react": "^0.12.2",
+    "react": "^16.13.1",
     "react-addons-css-transition-group": "^15.3.1",
     "react-router": "^2.7.0",
     "reactify": "https://registry.npmjs.org/reactify/-/reactify-1.1.1.tgz",
